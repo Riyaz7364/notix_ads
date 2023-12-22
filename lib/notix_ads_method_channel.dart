@@ -20,16 +20,33 @@ class MethodChannelNotixAds extends NotixAdsPlatform {
   @override
   Future<Widget> loadBanner(int zoneId,
       {BannerAdSize adSize = BannerAdSize.Standard}) async {
+    double width = 320, height;
+    switch (adSize) {
+      case BannerAdSize.Standard:
+        height = 50;
+        break;
+      case BannerAdSize.Landscape:
+        height = 90;
+        break;
+      case BannerAdSize.Rectangle:
+        height = 250;
+        break;
+    }
     try {
-      return AndroidView(
-        viewType: "Notix_banner",
-        // Pass parameters to the native view
-        creationParams: {
-          'zoneId': zoneId,
-          'adSize': adSize.toString().split('.').last
-        },
-        creationParamsCodec: const StandardMessageCodec(),
-      );
+      return SizedBox(
+          width: width,
+          height: height,
+          child: Center(
+            child: AndroidView(
+              viewType: "Notix_banner",
+              // Pass parameters to the native view
+              creationParams: {
+                'zoneId': zoneId,
+                'adSize': adSize.toString().split('.').last
+              },
+              creationParamsCodec: const StandardMessageCodec(),
+            ),
+          ));
     } catch (e) {
       log("Notix Channel Method error = $e");
     }
