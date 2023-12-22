@@ -28,10 +28,11 @@ class NotixAdsPlugin: FlutterPlugin, MethodCallHandler {
     flutterPluginBinding
       .platformViewRegistry
       .registerViewFactory("Notix_banner", bannerViewFactory)
+    channel.setMethodCallHandler(this)
   }
 
   override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
-    if (call.method == "AppOpen") {
+    if (call.method == "appOpen") {
 
       val zoneId = call.argument<Number>("zoneId")?.toLong()
       if(zoneId != null){
@@ -44,7 +45,7 @@ class NotixAdsPlugin: FlutterPlugin, MethodCallHandler {
 
 
 
-      result.success("Android ${android.os.Build.VERSION.RELEASE}")
+      result.success("$zoneId ${android.os.Build.VERSION.RELEASE}")
     } else {
       result.notImplemented()
     }

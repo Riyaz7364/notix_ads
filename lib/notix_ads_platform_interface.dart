@@ -30,7 +30,7 @@ abstract class NotixAdsPlatform extends PlatformInterface {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
 
-  Future<dynamic> AppOpen(int zoneId) {
+  Future<dynamic> appOpen(int zoneId) {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
 }

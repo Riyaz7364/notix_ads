@@ -12,8 +12,9 @@ class MethodChannelNotixAds extends NotixAdsPlatform {
   final methodChannel = const MethodChannel('notix_ads');
 
   @override
-  Future<dynamic> AppOpen(int zoneId) async {
-    final response = await methodChannel.invokeMethod("AppOpen");
+  Future<dynamic> appOpen(int zoneId) async {
+    final response =
+        await methodChannel.invokeMethod("appOpen", {"zoneId": zoneId});
     log(response.toString());
   }
 
