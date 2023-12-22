@@ -32,9 +32,18 @@ class NotixAdsPlugin: FlutterPlugin, MethodCallHandler {
 
   override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
     if (call.method == "AppOpen") {
-      val appOpenLoader = NotixAppOpen.createLoader(6273334)
-      appOpenLoader.startLoading()
-      NotixAppOpen.startAutoShow(appOpenLoader)
+
+      val zoneId = call.argument<Number>("zoneId")?.toLong()
+      if(zoneId != null){
+        val appOpenLoader = NotixAppOpen.createLoader(zoneId)
+        appOpenLoader.startLoading()
+        NotixAppOpen.startAutoShow(appOpenLoader)
+      }else{
+        print("Failed to load APP Open Ads Invalid ZoneID Or Account is not Active")
+      }
+
+
+
       result.success("Android ${android.os.Build.VERSION.RELEASE}")
     } else {
       result.notImplemented()

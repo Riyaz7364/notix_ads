@@ -12,7 +12,7 @@ class MethodChannelNotixAds extends NotixAdsPlatform {
   final methodChannel = const MethodChannel('notix_ads');
 
   @override
-  Future<dynamic> AppOpen() async {
+  Future<dynamic> AppOpen(int zoneId) async {
     final response = await methodChannel.invokeMethod("AppOpen");
     log(response.toString());
   }
@@ -33,20 +33,21 @@ class MethodChannelNotixAds extends NotixAdsPlatform {
         break;
     }
     try {
-      return SizedBox(
+      return Center(
+        child: SizedBox(
           width: width,
           height: height,
-          child: Center(
-            child: AndroidView(
-              viewType: "Notix_banner",
-              // Pass parameters to the native view
-              creationParams: {
-                'zoneId': zoneId,
-                'adSize': adSize.toString().split('.').last
-              },
-              creationParamsCodec: const StandardMessageCodec(),
-            ),
-          ));
+          child: AndroidView(
+            viewType: "Notix_banner",
+            // Pass parameters to the native view
+            creationParams: {
+              'zoneId': zoneId,
+              'adSize': adSize.toString().split('.').last
+            },
+            creationParamsCodec: const StandardMessageCodec(),
+          ),
+        ),
+      );
     } catch (e) {
       log("Notix Channel Method error = $e");
     }

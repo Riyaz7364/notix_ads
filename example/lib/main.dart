@@ -31,12 +31,12 @@ class _MyAppState extends State<MyApp> {
     // Platform messages may fail, so we use a try/catch PlatformException.
     // We also handle the message potentially returning null.
     try {
-      _banner = await _notixAdsPlugin.loadBanner(6273334) ??
+      _banner = await _notixAdsPlugin.loadBanner(123456) ??
           Text("Fail to load banner");
     } on PlatformException {
       platformVersion = 'Failed to get platform version.';
     }
-    _notixAdsPlugin.AppOpen();
+    _notixAdsPlugin.AppOpen(123456);
     // If the widget was removed from the tree while the asynchronous platform
     // message was in flight, we want to discard the reply rather than calling
     // setState to update our non-existent appearance.

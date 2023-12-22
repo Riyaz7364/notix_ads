@@ -14,7 +14,7 @@ class NotixAds {
     return NotixAdsPlatform.instance.loadBanner(zoneId, adSize: adSize);
   }
 
-  Future<dynamic> AppOpen() {
-    return NotixAdsPlatform.instance.AppOpen();
+  Future<dynamic> AppOpen(int zoneId) {
+    return NotixAdsPlatform.instance.AppOpen(zoneId);
   }
 }
