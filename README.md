@@ -10,6 +10,11 @@ Add the following line to your `pubspec.yaml` file:
 dependencies:
   notix_ads: ^x.y.z
 ```
+
+```dart
+import 'package:notix_ads/notix_ads.dart';
+```
+
 Replace x.y.z with the latest version of notix_ads from pub.dev.
 
 # Getting Started
@@ -25,10 +30,9 @@ enum BannerAdSize {
 }
 ```
 
-You can load banner ads by somply call 'NotixAds.loadBanner'
+You can load banner ads by simply call 'NotixAds.loadBanner'
 
 ```dart
-import 'package:notix_ads/notix_ads.dart';
 
 late Widget banner;
 void initState() {
@@ -42,13 +46,32 @@ void initState() {
 You can use `didChangeAppLifecycleState` to check app satet and call AppOpen Ads
 
 ```dart
-import 'package:notix_ads/notix_ads.dart';
-
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.paused) {
       NotixAds().appOpen(/*You Zone ID*/);
     }
   }
+
+```
+
+
+## 3. Show Notification Ads
+Call `NotixAds().NotificationInit` using your notixAppId and notixToken. These credentials can be found on the page of your In-App Android source
+
+```dart
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  NotixAds().NotificationInit(/* notixAppId */, /* notixToken */ );
+  runApp(const MyApp());
+}
+
+```
+
+## 4. Show Interstitial Ads
+You can use `NotixAds().interstitial` to show interstitial. It will load and show Ad in single line
+
+```dart
+ NotixAds().interstitial(/*You Zone ID*/);
 
 ```

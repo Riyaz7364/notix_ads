@@ -1,8 +1,8 @@
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:notix_ads/notix_ads.dart';
-import 'package:notix_ads/notix_ads_platform_interface.dart';
 import 'package:notix_ads/notix_ads_method_channel.dart';
+import 'package:notix_ads/notix_ads_platform_interface.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
 class MockNotixAdsPlatform
@@ -19,8 +19,26 @@ class MockNotixAdsPlatform
 
   @override
   Future<Widget> loadBanner(int zoneId,
-      {BannerAdSize adSize = BannerAdSize.Standard}) {
+      {BannerAdSize adSize = BannerAdSize.standard}) {
     // TODO: implement loadBanner
+    throw UnimplementedError();
+  }
+
+  @override
+  Future notificationInit(String notixAppId, String notixToken) {
+    // TODO: implement NotificationInit
+    throw UnimplementedError();
+  }
+
+  @override
+  Future appOpen(int zoneId) {
+    // TODO: implement appOpen
+    throw UnimplementedError();
+  }
+
+  @override
+  Future interstitial(int zoneId) {
+    // TODO: implement interstitial
     throw UnimplementedError();
   }
 }

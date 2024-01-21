@@ -45,6 +45,6 @@ android {
     }
 
     dependencies {
-        implementation 'co.notix:android-sdk:0.1.+'
+        implementation 'co.notix:android-sdk:0.1.86'
     }
 }

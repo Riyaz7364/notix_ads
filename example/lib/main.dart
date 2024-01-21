@@ -1,10 +1,12 @@
-import 'package:flutter/material.dart';
 import 'dart:async';
 
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:notix_ads/notix_ads.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  NotixAds().notificationInit('p6xxxx', 'cxxxc7744fa847f4a59f7beac9fxxxx');
   runApp(const MyApp());
 }
 
@@ -31,8 +33,8 @@ class _MyAppState extends State<MyApp> {
     // Platform messages may fail, so we use a try/catch PlatformException.
     // We also handle the message potentially returning null.
     try {
-      _banner = await _notixAdsPlugin.loadBanner(6273334) ??
-          Text("Fail to load banner");
+      _banner =
+          await _notixAdsPlugin.loadBanner(0000) ?? Text("Fail to load banner");
     } on PlatformException {
       platformVersion = 'Failed to get platform version.';
     }
@@ -59,7 +61,8 @@ class _MyAppState extends State<MyApp> {
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            _notixAdsPlugin.appOpen(6803671);
+            // _notixAdsPlugin.appOpen(xxxx);
+            _notixAdsPlugin.interstitial(0000);
           },
         ),
       ),

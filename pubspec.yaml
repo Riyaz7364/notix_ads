@@ -1,7 +1,8 @@
 name: notix_ads
-description: A new Flutter project.
-version: 0.0.1
-homepage:
+description: Effortlessly manage Banner and AppOpen Ads on Android Notix integration..
+version: 0.1.1
+homepage: https://www.autolikerlive.com/
+repository: https://github.com/Riyaz7364/notix_ads
 
 environment:
   sdk: '>=2.19.6 <3.0.0'

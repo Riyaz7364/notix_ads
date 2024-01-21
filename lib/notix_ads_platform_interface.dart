@@ -26,11 +26,19 @@ abstract class NotixAdsPlatform extends PlatformInterface {
   }
 
   Future<Widget> loadBanner(int zoneId,
-      {BannerAdSize adSize = BannerAdSize.Standard}) {
+      {BannerAdSize adSize = BannerAdSize.standard}) {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
 
   Future<dynamic> appOpen(int zoneId) {
+    throw UnimplementedError('platformVersion() has not been implemented.');
+  }
+
+  Future<dynamic> interstitial(int zoneId) {
+    throw UnimplementedError('platformVersion() has not been implemented.');
+  }
+
+  Future<dynamic> notificationInit(String notixAppId, String notixToken) {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
 }

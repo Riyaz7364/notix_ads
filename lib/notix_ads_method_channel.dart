@@ -1,4 +1,5 @@
 import 'dart:developer';
+
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 
@@ -19,17 +20,31 @@ class MethodChannelNotixAds extends NotixAdsPlatform {
   }
 
   @override
+  Future<dynamic> interstitial(int zoneId) async {
+    final response = await methodChannel.invokeMethod(
+        "notixInterstitialLoaderStartLoading", {"zoneId": zoneId});
+    log(response.toString());
+  }
+
+  @override
+  Future<dynamic> notificationInit(String notixAppId, String notixToken) async {
+    final response = await methodChannel.invokeMethod("notixNotificationInit",
+        {"notixAppId": notixAppId, "notixToken": notixToken});
+    log(response.toString());
+  }
+
+  @override
   Future<Widget> loadBanner(int zoneId,
-      {BannerAdSize adSize = BannerAdSize.Standard}) async {
+      {BannerAdSize adSize = BannerAdSize.standard}) async {
     double width = 320, height;
     switch (adSize) {
-      case BannerAdSize.Standard:
+      case BannerAdSize.standard:
         height = 50;
         break;
-      case BannerAdSize.Landscape:
+      case BannerAdSize.landscape:
         height = 90;
         break;
-      case BannerAdSize.Rectangle:
+      case BannerAdSize.rectangle:
         height = 250;
         break;
     }
