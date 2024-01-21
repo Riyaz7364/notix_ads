@@ -27,9 +27,9 @@ class BannerAdView(
         val adSizeName = creationParams?.get("adSize") as? String
         val zoneId = creationParams?.get("zoneId") as Int
         val size = when (adSizeName) {
-            "Standard" -> BannerSize.Inline(width = 320, maxHeight = 50)
-            "Landscape" -> BannerSize.Inline(width = 320, maxHeight = 90)
-            "Rectangle" -> BannerSize.Inline(width = 320, maxHeight = 250)
+            "standard" -> BannerSize.Inline(width = 320, maxHeight = 50)
+            "landscape" -> BannerSize.Inline(width = 320, maxHeight = 90)
+            "rectangle" -> BannerSize.Inline(width = 320, maxHeight = 250)
             else -> throw IllegalArgumentException("Invalid ad size: $adSizeName")
         }
         val bannerRequest = BannerRequest(zoneId = zoneId.toLong(), size = size)
